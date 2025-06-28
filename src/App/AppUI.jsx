@@ -11,6 +11,7 @@ import { SectionBlock } from "@structure/SectionBlock";
 import { SectionDescription } from "@structure/SectionBlock/SectionDescription";
 import { TimelineBlock, TimelineItem } from "@components/Layout/TimelineBlock";
 import { SkillsCarousel } from "@structure/SkillsCarousel";
+import { GithubProjects } from '@components/GithubProjects';
 // Contexto Global
 import { GlobalContext } from "@hooks/GlobalContext";
 
@@ -86,6 +87,9 @@ function AppUI() {
                         <p>
                            He desarrollado una variedad de proyectos que abarcan desde sitios web personalizados hasta sistemas integrados, aplicando soluciones innovadoras a problemas complejos. Cada proyecto ha sido una oportunidad para combinar creatividad y tecnología, adaptándome a las necesidades específicas del cliente y explorando nuevas herramientas y metodologías.
                         </p>
+                    </SectionDescription>
+                    <SectionDescription>
+                        <GithubProjects/>
                     </SectionDescription>
                 </SectionBlock>
                 <SectionBlock sectionName={"contact"}>

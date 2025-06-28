@@ -1,0 +1,56 @@
+// src/components/GithubProjects.jsx
+import { useEffect, useState } from 'react';
+
+const GithubProjects = () => {
+  const [repos, setRepos] = useState([]);
+    const githubUser = "LOrozcoDev";
+    const featuredRepos = [
+      "wordpress_templates",
+    ];
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${githubUser}/repos`)
+      .then((res) => res.json())
+      .then((data) => {
+          const filtered = data.filter(repo =>
+            repo.name.startsWith('public-') || featuredRepos.includes(repo.name)
+          );
+          setRepos(filtered);
+      })
+      .catch((err) => {
+        console.error('Error al obtener repositorios:', err);
+      });
+  }, []);
+  const getPagesURL = (repoName) => `https://${githubUser}.github.io/${repoName}/`;
+  const getThumbnail = (repoName) =>
+  `https://raw.githubusercontent.com/${githubUser}/${repoName}/main/public/thumbnail.jpg`;
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {repos.map(repo => (
+        <div key={repo.id} className="glass p-4 border rounded-xl shadow-md">
+          <div className='repThumb mb-4'>
+            <img src={getThumbnail(repo.name)} alt={repo.name} />  
+          </div>
+            <h3 className="text-xl font-semibold capitalize mb-2">{repo.name.replace("_"," ")}</h3>
+          <p className="text-sm dark:text-white">{repo.description}</p>
+          <div className='flex m-0 p-0 gap-2 justify-between'>
+            <a href={repo.html_url} className="text-white py-2 px-4 rounded-md font-bold bg-indigo-700 no-underline" target="_blank" rel="noreferrer">
+                Ver en GitHub
+            </a>
+              {repo.has_pages && (<>
+                  <a
+                    href={getPagesURL(repo.name)}
+                    className="dark:text-white bg-light-link no-underline font-medium py-2 px-4 rounded-md font-bold"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Ver Demo
+                  </a></>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export { GithubProjects };
