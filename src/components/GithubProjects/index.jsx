@@ -1,28 +1,8 @@
-// src/components/GithubProjects.jsx
-import { useEffect, useState } from 'react';
+import React from "react";
+import { GithubContext } from "@hooks/GithubContext";
 
 const GithubProjects = () => {
-  const [repos, setRepos] = useState([]);
-    const githubUser = "LOrozcoDev";
-    const featuredRepos = [
-      "wordpress_templates",
-    ];
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${githubUser}/repos`)
-      .then((res) => res.json())
-      .then((data) => {
-          const filtered = data.filter(repo =>
-            repo.name.startsWith('public-') || featuredRepos.includes(repo.name)
-          );
-          setRepos(filtered);
-      })
-      .catch((err) => {
-        console.error('Error al obtener repositorios:', err);
-      });
-  }, []);
-  const getPagesURL = (repoName) => `https://${githubUser}.github.io/${repoName}/`;
-  const getThumbnail = (repoName) =>
-  `https://raw.githubusercontent.com/${githubUser}/${repoName}/main/public/thumbnail.jpg`;
+  const { repos, getPagesURL, getThumbnail } = React.useContext(GithubContext);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {repos.map(repo => (

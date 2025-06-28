@@ -5,7 +5,7 @@ function GithubProvider({ children }) {
     const [repos, setRepos] = React.useState([]);
     const githubUser = "LOrozcoDev";
     const featuredRepos = [
-    "wordpress_templates",
+        "wordpress_templates",
     ];
     React.useEffect(() => {
     fetch(`https://api.github.com/users/${githubUser}/repos`)

@@ -13,6 +13,7 @@ import { TimelineBlock, TimelineItem } from "@components/Layout/TimelineBlock";
 import { SkillsCarousel } from "@structure/SkillsCarousel";
 import { GithubProjects } from '@components/GithubProjects';
 // Contexto Global
+import { GithubProvider } from "@hooks/GithubContext";
 import { GlobalContext } from "@hooks/GlobalContext";
 
 function AppUI() {
@@ -85,11 +86,13 @@ function AppUI() {
                     <TitleComposed type={"h2"} primaryWord={"Proyectos"} secondaryWord={"Realizados"} decorated uppercase />
                     <SectionDescription>
                         <p>
-                           He desarrollado una variedad de proyectos que abarcan desde sitios web personalizados hasta sistemas integrados, aplicando soluciones innovadoras a problemas complejos. Cada proyecto ha sido una oportunidad para combinar creatividad y tecnología, adaptándome a las necesidades específicas del cliente y explorando nuevas herramientas y metodologías.
+                            He desarrollado una variedad de proyectos que abarcan desde sitios web personalizados hasta sistemas integrados, aplicando soluciones innovadoras a problemas complejos. Cada proyecto ha sido una oportunidad para combinar creatividad y tecnología, adaptándome a las necesidades específicas del cliente y explorando nuevas herramientas y metodologías.
                         </p>
                     </SectionDescription>
                     <SectionDescription>
-                        <GithubProjects/>
+                        <GithubProvider>
+                            <GithubProjects/>
+                        </GithubProvider>
                     </SectionDescription>
                 </SectionBlock>
                 <SectionBlock sectionName={"contact"}>
