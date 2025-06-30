@@ -19,7 +19,7 @@ const GithubProjects = () => {
               {repo.has_pages && (<>
                   <a
                     href={getPagesURL(repo.name)}
-                    className="dark:text-white bg-light-link no-underline font-medium py-2 px-4 rounded-md font-bold"
+                    className="text-white bg-light-link no-underline font-medium py-2 px-4 rounded-md font-bold"
                     target="_blank"
                     rel="noreferrer"
                   >
