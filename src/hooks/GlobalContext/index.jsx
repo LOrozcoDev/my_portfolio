@@ -6,13 +6,13 @@ function GlobalProvider({children}) {
     const { activeDarkTheme, toggleTheme } = useLocalStorage();
     const [cursorPosition, setCursorPosition] = React.useState({ x: 0, y: 0 });
     const socialNetworks = [
-        {id: 1, name: "github", url: "https://github.com/LeonardoOrozco16" },
+        {id: 1, name: "github", url: "https://github.com/LOrozcoDev" },
         {id:2, name: "linkedin", url: "https://www.linkedin.com/in/leonardoj-orozcob/" },
         {id:3, name: "instagram" , url: "https://www.instagram.com/kuma_learns/" },
         
     ];
     const navigation = [
-        { name: "Inicio", url: "/", icon: "home" },
+        { name: "Inicio", url: "/my_portfolio/", icon: "home" },
         { name: "Acerca De", url: "#about", icon: "about" },
         { name: "Experiencia", url: "#experience", icon: "experience" },
         { name: "Proyectos", url: "#proyects", icon: "proyects" },

@@ -13,6 +13,7 @@ import { ReactLogo } from "./ReactLogo";
 import { NodeLogo } from "./NodeLogo";
 import { GitLogo } from "./GitLogo";
 import { PythonLogo } from "./PythonLogo";
+import { MongoLogo } from "./MongoLogo";
 function LogosComponents({ type }) {
     const logosList = {
         html: <HTMLogo />,
@@ -29,7 +30,8 @@ function LogosComponents({ type }) {
         react: <ReactLogo />,
         git: <GitLogo />,
         node: <NodeLogo />,
-        python: <PythonLogo />
+        python: <PythonLogo />,
+        mongo: <MongoLogo/>
         
     }
     return logosList[type];
